@@ -5,9 +5,6 @@ filetype off
 set backupdir=~/.vim/backup/,~/.vim/temp/
 set directory=~/.vim/swap/
 
-" Load plugins here (pathogen or vundle)
-execute pathogen#infect()
-
 " Turn on syntax highlighting
 syntax on
 
@@ -40,6 +37,9 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set noshiftround
+
+" Visual Block Mode
+nnoremap <F2> <C-V>
 
 " Cursor motion
 set scrolloff=3
@@ -97,12 +97,15 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
 set background=dark
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='medium'
+if has('termguicolors')
+  set termguicolors
+endif
 
-"set t_Co=256
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
+"packadd! everforest
+"colorscheme everforest
+"let g:everforest_background = 'hard'
+
+packadd! gruvbox-material
+colorscheme gruvbox-material
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_better_performance = 1
