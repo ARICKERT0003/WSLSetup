@@ -1,0 +1,5 @@
+# Set default behaviour, in case core.autocrlf is not set
+* test=auto
+
+# Keep shell files with unix line endings
+*.sh text eol=lf
